@@ -34,9 +34,26 @@ Todos os scripts DDL (Criação), DML (Inserção) e DQL (10 Consultas complexas
 6. Na aba de "Overview", copie a `Service URI` (ou Host, Port, User e Password) para conectar o banco no seu cliente local (como DBeaver ou MySQL Workbench).
 
 ## 7. Como fazer o Dump do Banco (Backup de Estrutura e Dados)
-Para gerar o arquivo `.sql` de backup usando a linha de comando (mysqldump):
-1. Abra o terminal (ou Prompt de Comando).
-2. Execute o comando:
-   `mysqldump -u [usuario_da_nuvem] -p -h [host_da_aiven] --port [porta] hotel_7estrelas > backup_hotel.sql`
-3. Insira a senha quando solicitado.
-4. O arquivo `backup_hotel.sql` será criado na pasta atual com toda a estrutura (CREATE TABLES) e dados (INSERTS) prontos para serem restaurados.
+Abra o MySQL Workbench e conecte-se à sua instância de banco de dados.
+
+No menu superior, clique em Server e selecione Data Export (ou clique em "Data Export" no painel de navegação esquerdo, dentro da aba "Administration").
+
+Na seção "Tables to Export" (lado esquerdo), marque a caixa de seleção ao lado do banco de dados (schema) que você deseja exportar.
+
+No painel central, você pode selecionar tabelas específicas. Abaixo, no menu suspenso, escolha o que deseja exportar:
+
+Dump Structure and Data: Exporta as tabelas e os dados.
+
+Dump Data Only: Exporta apenas os dados.
+
+Dump Structure Only: Exporta apenas a estrutura (sem os dados).
+
+Na seção "Export Options", escolha o formato de saída do seu dump:
+
+Export to Dump Project Folder: Cria uma pasta com um arquivo .sql separado para cada tabela (recomendado para bancos muito grandes).
+
+Export to Self-Contained File: Cria um único arquivo .sql contendo tudo (mais prático para backups simples ou para compartilhar). Defina o caminho e o nome do arquivo.
+
+Marque a opção Include Create Schema se quiser que o arquivo gerado inclua o comando de criação do banco de dados (CREATE DATABASE).
+
+Clique no botão Start Export no canto inferior direito.
