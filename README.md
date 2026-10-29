@@ -34,26 +34,21 @@ Todos os scripts DDL (Criação), DML (Inserção) e DQL (10 Consultas complexas
 6. Na aba de "Overview", copie a `Service URI` (ou Host, Port, User e Password) para conectar o banco no seu cliente local (como DBeaver ou MySQL Workbench).
 
 ## 7. Como fazer o Dump do Banco (Backup de Estrutura e Dados)
-Abra o MySQL Workbench e conecte-se à sua instância de banco de dados.
+Para fazer o dump (exportação) de um banco de dados no **MySQL Workbench**, siga estes passos:
 
-No menu superior, clique em Server e selecione Data Export (ou clique em "Data Export" no painel de navegação esquerdo, dentro da aba "Administration").
+1. Abra o MySQL Workbench e conecte-se à sua instância de banco de dados.
+2. No menu superior, clique em **Server** e selecione **Data Export** (ou clique em "Data Export" no painel de navegação esquerdo, dentro da aba "Administration").
+3. Na seção "Tables to Export" (lado esquerdo), marque a caixa de seleção ao lado do banco de dados (schema) que você deseja exportar.
+4. No painel central, você pode selecionar tabelas específicas. Abaixo, no menu suspenso, escolha o que deseja exportar:
+* **Dump Structure and Data:** Exporta as tabelas e os dados.
+* **Dump Data Only:** Exporta apenas os dados.
+* **Dump Structure Only:** Exporta apenas a estrutura (sem os dados).
 
-Na seção "Tables to Export" (lado esquerdo), marque a caixa de seleção ao lado do banco de dados (schema) que você deseja exportar.
+5. Na seção "Export Options", escolha o formato de saída do seu dump:
+* **Export to Dump Project Folder:** Cria uma pasta com um arquivo `.sql` separado para cada tabela (recomendado para bancos muito grandes).
+* **Export to Self-Contained File:** Cria um único arquivo `.sql` contendo tudo (mais prático para backups simples ou para compartilhar). Defina o caminho e o nome do arquivo.
 
-No painel central, você pode selecionar tabelas específicas. Abaixo, no menu suspenso, escolha o que deseja exportar:
+6. Marque a opção **Include Create Schema** se quiser que o arquivo gerado inclua o comando de criação do banco de dados (`CREATE DATABASE`).
+7. Clique no botão **Start Export** no canto inferior direito.
 
-Dump Structure and Data: Exporta as tabelas e os dados.
-
-Dump Data Only: Exporta apenas os dados.
-
-Dump Structure Only: Exporta apenas a estrutura (sem os dados).
-
-Na seção "Export Options", escolha o formato de saída do seu dump:
-
-Export to Dump Project Folder: Cria uma pasta com um arquivo .sql separado para cada tabela (recomendado para bancos muito grandes).
-
-Export to Self-Contained File: Cria um único arquivo .sql contendo tudo (mais prático para backups simples ou para compartilhar). Defina o caminho e o nome do arquivo.
-
-Marque a opção Include Create Schema se quiser que o arquivo gerado inclua o comando de criação do banco de dados (CREATE DATABASE).
-
-Clique no botão Start Export no canto inferior direito.
+Aguarde a barra de progresso ser concluída e seu arquivo de dump estará salvo no local escolhido.
