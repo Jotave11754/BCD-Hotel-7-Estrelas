@@ -40,4 +40,3 @@ Para gerar o arquivo `.sql` de backup usando a linha de comando (mysqldump):
    `mysqldump -u [usuario_da_nuvem] -p -h [host_da_aiven] --port [porta] hotel_7estrelas > backup_hotel.sql`
 3. Insira a senha quando solicitado.
 4. O arquivo `backup_hotel.sql` será criado na pasta atual com toda a estrutura (CREATE TABLES) e dados (INSERTS) prontos para serem restaurados.
-5. 
